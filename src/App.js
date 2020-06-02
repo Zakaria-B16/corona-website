@@ -51,9 +51,13 @@ const App = () => {
 
   const handleCountryChange = async (country) => {
     const fetchedData = await fetchData(country);
-    setCountry({ fetchedData });
+    setCountry(country);
+    setData(fetchedData);
+    console.log(country);
     return { data, country };
   };
+
+  console.log(data);
 
   return (
     // <Paper className={!darkMode ? styles.Paper : null}>

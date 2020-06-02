@@ -70,8 +70,6 @@ const Chart = ({
       ></Line>
     ) : null;
 
-  console.log(confirmed, recovered, deaths);
-
   const barChart = confirmed ? (
     <Bar
       data={{
@@ -80,17 +78,39 @@ const Chart = ({
           {
             label: "People",
             backgroundColor: [
-              "rgba( 0, 0, 255, 0.5)",
-              "rgba( 0, 250, 0, 0.5)",
-              "rgba( 255, 0, 0, 0.5)",
+              "rgba(0, 0, 255, 0.5)",
+              "rgba(0, 255, 0, 0.5)",
+              "rgba(255, 0, 0, 0.5)",
             ],
             data: [confirmed.value, recovered.value, deaths.value],
           },
         ],
       }}
-      option={{
+      options={{
         legend: { display: false },
-        title: { display: true, text: `Current state in ${country}` },
+        title: {
+          display: true,
+          text: `Current state in ${country}`,
+          fontColor: darkMode ? "#bdbdbd" : "grey",
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: { fontColor: darkMode ? "#bdbdbd" : "grey" },
+              gridLines: {
+                color: !darkMode ? "#bdbdbd" : "grey",
+              },
+            },
+          ],
+          xAxes: [
+            {
+              ticks: { fontColor: darkMode ? "#bdbdbd" : "grey" },
+              gridLines: {
+                color: !darkMode ? "#bdbdbd" : "grey",
+              },
+            },
+          ],
+        },
       }}
     ></Bar>
   ) : null;
