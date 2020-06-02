@@ -5,7 +5,11 @@ import { Line, Bar } from "react-chartjs-2";
 
 import styles from "./Chart.module.css";
 
-const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
+const Chart = ({
+  data: { confirmed, recovered, deaths },
+  country,
+  darkMode,
+}) => {
   const [dailyData, setdailyData] = useState([]);
 
   useEffect(() => {
@@ -36,6 +40,32 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
               fill: true,
             },
           ],
+        }}
+        options={{
+          legend: {
+            display: true,
+            labels: {
+              fontColor: darkMode ? "#bdbdbd" : "grey",
+            },
+          },
+          scales: {
+            yAxes: [
+              {
+                ticks: { fontColor: darkMode ? "#bdbdbd" : "grey" },
+                gridLines: {
+                  color: !darkMode ? "#bdbdbd" : "grey",
+                },
+              },
+            ],
+            xAxes: [
+              {
+                ticks: { fontColor: darkMode ? "#bdbdbd" : "grey" },
+                gridLines: {
+                  color: !darkMode ? "#bdbdbd" : "grey",
+                },
+              },
+            ],
+          },
         }}
       ></Line>
     ) : null;
