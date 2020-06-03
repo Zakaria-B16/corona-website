@@ -59,15 +59,15 @@ const App = () => {
       <CssBaseline>
         <Paper className={!darkMode ? styles.MuiPaper : styles.paper}>
           <div className={styles.switcher}>
+            <p>
+              {mode} <span>Mode</span>
+            </p>
             <ThemeSwitch
               defaultChecked
               color="default"
               checked={darkMode}
               onChange={() => setdarkMode(!darkMode)}
             ></ThemeSwitch>
-            <p>
-              {mode} <span>Mode</span>
-            </p>
           </div>
           <div className={styles.container}>
             <img
