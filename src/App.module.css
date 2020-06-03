@@ -3,6 +3,23 @@ body {
   margin: 0;
 }
 
+.switcher {
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.switcher p {
+  display: inline;
+  font-weight: bold;
+  margin: 0;
+}
+
+.switcher p span {
+  color: #99a3a8;
+}
+
 .container {
   display: flex;
   align-items: center;

@@ -32,15 +32,11 @@ const App = () => {
 
   const theme = createMuiTheme({
     palette: {
-      background: {
-        default: "#303030",
-      },
       type: darkMode ? "dark" : "light",
     },
-    overrides: {
-      light: {},
-    },
   });
+
+  let mode = darkMode ? "Dark" : "Light";
 
   useEffect(() => {
     const fetcher = async () => {
@@ -57,21 +53,23 @@ const App = () => {
     return { data, country };
   };
 
-  console.log(data);
-
   return (
     // <Paper className={!darkMode ? styles.Paper : null}>
     <ThemeProvider theme={theme}>
       <CssBaseline>
         <Paper className={!darkMode ? styles.MuiPaper : styles.paper}>
-          <div className={styles.container}>
+          <div className={styles.switcher}>
             <ThemeSwitch
-              className={styles.switcher}
               defaultChecked
               color="default"
               checked={darkMode}
               onChange={() => setdarkMode(!darkMode)}
             ></ThemeSwitch>
+            <p>
+              {mode} <span>Mode</span>
+            </p>
+          </div>
+          <div className={styles.container}>
             <img
               className={styles.image}
               src={darkMode ? coronaImageWhite : coronaImage}
