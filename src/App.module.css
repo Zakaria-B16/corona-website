@@ -33,6 +33,13 @@ body {
 }
 
 @media (max-width: 770px) {
+  .switcher {
+    position: static;
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+
   .container {
     margin: 0 10%;
   }
