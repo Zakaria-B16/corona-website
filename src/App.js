@@ -49,12 +49,12 @@ const App = () => {
     const fetchedData = await fetchData(country);
     setCountry(country);
     setData(fetchedData);
-    console.log(country);
     return { data, country };
   };
 
+  console.clear();
+
   return (
-    // <Paper className={!darkMode ? styles.Paper : null}>
     <ThemeProvider theme={theme}>
       <CssBaseline>
         <Paper className={!darkMode ? styles.MuiPaper : styles.paper}>
@@ -84,7 +84,6 @@ const App = () => {
         </Paper>
       </CssBaseline>
     </ThemeProvider>
-    // </Paper>
   );
 };
 

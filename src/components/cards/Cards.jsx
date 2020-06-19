@@ -4,7 +4,9 @@ import styles from "./Cards.module.css";
 import CountUp from "react-countup";
 import cx from "classnames";
 
-const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+const Cards = ({
+  data: { confirmed, recovered, deaths, lastUpdate, active },
+}) => {
   if (!confirmed) {
     return "...";
   }
@@ -16,7 +18,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           item
           component={Card}
           sm={12}
-          md={3}
+          md={5}
           className={cx(styles.card, styles.infected)}
         >
           <CardContent>
@@ -43,7 +45,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           item
           component={Card}
           sm={12}
-          md={3}
+          md={5}
           className={cx(styles.card, styles.recovered)}
         >
           <CardContent>
@@ -70,7 +72,34 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           item
           component={Card}
           sm={12}
-          md={3}
+          md={5}
+          className={cx(styles.card, styles.active)}
+        >
+          <CardContent>
+            <Typography color="textSecondary" gutterBottom>
+              Active Cases
+            </Typography>
+            <Typography variant="h5">
+              <CountUp
+                start={0}
+                end={active}
+                duration={2.5}
+                separator=","
+              ></CountUp>
+            </Typography>
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
+            <Typography variant="body2">
+              Number of active cases of COVID-19
+            </Typography>
+          </CardContent>
+        </Grid>
+        <Grid
+          item
+          component={Card}
+          sm={12}
+          md={5}
           className={cx(styles.card, styles.deaths)}
         >
           <CardContent>

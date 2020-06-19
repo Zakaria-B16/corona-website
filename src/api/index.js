@@ -12,7 +12,9 @@ export const fetchData = async (country) => {
     const {
       data: { confirmed, recovered, deaths, lastUpdate },
     } = await axios.get(changeableUrl);
-    return { confirmed, recovered, deaths, lastUpdate };
+
+    let active = confirmed.value - (recovered.value + deaths.value);
+    return { confirmed, recovered, deaths, lastUpdate, active };
   } catch (error) {
     return error;
   }
@@ -33,6 +35,7 @@ export const fetchDailyData = async () => {
     console.log(error);
   }
 };
+console.clear();
 
 export const fetchCountries = async () => {
   try {
